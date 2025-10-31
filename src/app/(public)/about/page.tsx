@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata : Metadata = {
+  title: 'About | Next Blog',
+  description: 'Learn more about the next blog platform'
+}
+
 const AboutPage = () => {
   return (
     <div className="py-30 px-4 max-w-7xl mx-auto">

@@ -2,13 +2,13 @@ import BlogDetailsCard from '@/components/modules/Blogs/BlogDetailsCard';
 import { IPost } from '@/types';
 import React from 'react';
 
-// function name atai hote hobe .
 export const generateStaticParams = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/posts`);
-    const { data: blogs } = await res.json();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`);
+  const {data: blogs} = await res.json();
 
-    return blogs.slice(0, 3).map((blog: IPost) => ({id: blog.id.toString()}));
-}
+  return blogs?.slice(0, 2)?.map((blog: IPost) => ({ id: String(blog.id) }));
+};
+
 
 export const generateMetadata = async ({ params }: { params: Promise<{ id:string}>}) => {
     const { id } = await params;

@@ -6,9 +6,13 @@ import { Home, PlusCircle, LogOut } from "lucide-react";
 
 export default function Sidebar() {
   return (
-    <aside className="flex h-screen w-64 flex-col border-r bg-black text-white">
+    <aside className="flex h-screen fixed w-64 flex-col border-r bg-black text-white">
       {/* Top navigation */}
       <nav className="flex-1 space-y-2 p-4">
+        <div className="mb-2 text-2xl font-bold">
+            NEXT BLOG
+        </div>
+        <div className="border-t mt-4"></div>
         <Link
           href="/"
           className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-gray-100 hover:text-black"

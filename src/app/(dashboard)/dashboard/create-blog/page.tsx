@@ -3,7 +3,7 @@ import React from "react";
 
 const CreateBlog = () => {
   return (
-    <div className="w-full my-10">
+    <div className="w-full my-6">
       <BlogForm />
     </div>
   );

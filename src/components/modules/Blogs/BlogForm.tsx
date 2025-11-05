@@ -98,7 +98,7 @@ export default function CreateBlogForm() {
 
       <button
         type="submit"
-        className="w-full cursor-pointer bg-blue-600 text-white font-medium py-2 rounded-md hover:bg-blue-700 transition"
+        className="w-full cursor-pointer bg-blue-600 text-white font-medium py-2 rounded-md hover:bg-blue-700 transition active:scale-[98%]"
       >
         Submit
       </button>

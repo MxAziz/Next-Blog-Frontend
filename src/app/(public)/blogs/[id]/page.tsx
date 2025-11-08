@@ -1,6 +1,6 @@
 import BlogDetailsCard from '@/components/modules/Blogs/BlogDetailsCard';
+import { getBlogById } from '@/services/PostServices';
 import { IPost } from '@/types';
-import React from 'react';
 
 export const generateStaticParams = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`);
@@ -13,19 +13,18 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({ params }: { params: Promise<{ id:string}>}) => {
     const { id } = await params;
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post/${id}`)
-    const blog = await res.json();
+    const blog = await getBlogById(Number(id));
+    console.log(blog);
 
     return {
-        title: `${blog.title} | Next Blog`
+        title: `${blog?.title} | Next Blog`
     }
 }
 
 const BlogDetailsPage = async ({params}: {params: Promise<{id: string}>}) => {
     const { id } = await params;
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post/${id}`)
-    const blog = await res.json();
+    const blog = await getBlogById(Number(id))
 
     return (
         <div>

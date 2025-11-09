@@ -9,12 +9,9 @@ export const generateStaticParams = async () => {
   return blogs?.slice(0, 2)?.map((blog: IPost) => ({ id: String(blog.id) }));
 };
 
-
 export const generateMetadata = async ({ params }: { params: Promise<{ id:string}>}) => {
     const { id } = await params;
-
     const blog = await getBlogById(Number(id));
-    console.log(blog);
 
     return {
         title: `${blog?.title} | Next Blog`
@@ -23,7 +20,6 @@ export const generateMetadata = async ({ params }: { params: Promise<{ id:string
 
 const BlogDetailsPage = async ({params}: {params: Promise<{id: string}>}) => {
     const { id } = await params;
-
     const blog = await getBlogById(Number(id))
 
     return (

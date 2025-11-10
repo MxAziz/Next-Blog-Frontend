@@ -2,15 +2,15 @@ import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar/Navbar";
 
 export default function PublicLayout({
-  children,
+     children,
 }: Readonly<{
-  children: React.ReactNode;
+     children: React.ReactNode;
 }>) {
-  return (
-    <>
-      <Navbar />
-      <main className="min-h-dvh">{children}</main>
-      <Footer />
-    </>
-  );
+     return (
+          <>
+               <Navbar />
+               <main className="min-h-dvh">{children}</main>
+               <Footer />
+          </>
+     );
 }

@@ -23,6 +23,7 @@ import { toast } from "sonner";
 // };
 
 export default function LoginForm() {
+
   const form = useForm<FieldValues>({
     defaultValues: {
       email: "",
@@ -52,7 +53,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50">
+    <div className="flex justify-center items-center min-h-screen bg-gray-50 py-20 mt-10">
       <div className="space-y-6 w-full max-w-md bg-white p-8 rounded-lg shadow-md">
         <Form {...form}>
           <form
@@ -99,7 +100,7 @@ export default function LoginForm() {
               )}
             />
 
-            <Button type="submit" className="w-full mt-2">
+            <Button type="submit" className="w-full mt-2 cursor-pointer">
               Login
             </Button>
 
@@ -114,7 +115,7 @@ export default function LoginForm() {
         <div className="flex flex-col gap-3 mt-4">
           <Button
             variant="outline"
-            className="flex items-center justify-center gap-2"
+            className="flex items-center justify-center gap-2 cursor-pointer"
             onClick={() => handleSocialLogin("github")}
           >
             {/* GitHub */}
@@ -130,7 +131,7 @@ export default function LoginForm() {
 
           <Button
             variant="outline"
-            className="flex items-center justify-center gap-2"
+            className="flex items-center justify-center gap-2 cursor-pointer"
             onClick={() =>
               signIn("google", {
                 callbackUrl: "/dashboard",
@@ -158,34 +159,3 @@ export default function LoginForm() {
     </div>
   );
 }
-
-// "use client";
-
-// import { Button } from '@/components/ui/button';
-// import { Input } from '@/components/ui/input';
-// import React from 'react';
-
-// const LoginForm = () => {
-//     return (
-//       <div className="h-screen flex flex-col justify-center items-center">
-//         <form onSubmit={handleSubmit(onsubmit)}>
-//           {/* name */}
-//           <div>
-//             <label>name</label>
-//             <Input {...register("name")} type="text" placeholder="enter your email" />
-//           </div>
-//           {/* password */}
-//           <div>
-//             <label>Email</label>
-//             {/* <input type="text" placeholder='enter your email'></input> */}
-//             <Input type="text" placeholder="enter your email" />
-//           </div>
-//           <div>
-//             <Button type="submit">Login</Button>
-//           </div>
-//         </form>
-//       </div>
-//     );
-// };
-
-// export default LoginForm;

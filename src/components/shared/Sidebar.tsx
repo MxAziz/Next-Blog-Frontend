@@ -3,15 +3,18 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Home, PlusCircle, LogOut } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Sidebar() {
+  // jehetu ata client component, tai akhane useServerSession() hook use kora jabe na...
+  const session = useSession();
+  console.log(session);
+
   return (
     <aside className="flex h-screen fixed w-64 flex-col border-r bg-black text-white">
       {/* Top navigation */}
       <nav className="flex-1 space-y-2 p-4">
-        <div className="mb-2 text-2xl font-bold">
-            NEXT BLOG
-        </div>
+        <div className="mb-2 text-2xl font-bold">NEXT BLOG</div>
         <div className="border-t mt-4"></div>
         <Link
           href="/"
@@ -32,16 +35,16 @@ export default function Sidebar() {
 
       {/* Bottom action */}
       <div className="p-4 border-t border-gray-500">
-        <Button
-          variant="destructive"
-          className="w-full justify-start gap-2 cursor-pointer"
-          onClick={() => {
-            console.log("Logout clicked");
-          }}
-        >
-          <LogOut className="h-4 w-4" />
-          Logout
-        </Button>
+        {session.status === "authenticated" && (
+          <Button
+            variant="destructive"
+            className="w-full justify-start gap-2 cursor-pointer"
+            onClick={() => signOut()}
+          >
+            <LogOut className="h-4 w-4" />
+            Logout
+          </Button>
+        )}
       </div>
     </aside>
   );

@@ -8,7 +8,6 @@ import { signOut, useSession } from "next-auth/react";
 export default function Sidebar() {
   // jehetu ata client component, tai akhane useServerSession() hook use kora jabe na...
   const session = useSession();
-  console.log(session);
 
   return (
     <aside className="flex h-screen fixed w-64 flex-col border-r bg-black text-white">

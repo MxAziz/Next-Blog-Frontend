@@ -12,8 +12,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { register } from "@/actions/auth";
-import { toast } from "sonner";
+// import { register } from "@/actions/auth";
+// import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
 // type RegisterFormValues = {
@@ -34,19 +34,19 @@ export default function RegisterForm() {
   });
   const router = useRouter();
   const onSubmit = async (values: FieldValues) => {
-    try {
-      const res = await register(values);
-      if (res?.id) {
-        toast.success("User Registered Successfully");
-        router.push("/login");
-      }
-    } catch (err) {
-      console.error(err);
-    }
+    // try {
+    //   const res = await register(values);
+    //   if (res?.id) {
+    //     toast.success("User Registered Successfully");
+    //     router.push("/login");
+    //   }
+    // } catch (err) {
+    //   console.error(err);
+    // }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50">
+    <div className="flex justify-center items-center min-h-screen bg-gray-50 py-20 mt-10">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}

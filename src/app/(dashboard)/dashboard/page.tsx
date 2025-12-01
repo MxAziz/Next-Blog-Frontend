@@ -1,6 +1,5 @@
-import { authOptions } from "@/helpers/authOptions";
+import { getUserSession } from "@/helpers/getUserSession";
 import { Metadata } from "next";
-import { getServerSession } from "next-auth";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -10,7 +9,7 @@ export const metadata: Metadata = {
 
 const DashboardHomePage = async() => {
 
-  const session = await getServerSession(authOptions);
+  const session = await getUserSession();
 
 
   return (
